@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yannick Ben Manfoumbi � Environmental Professional</title>
+  <style>
+/* ============================================================
+   YANNICK BEN MANFOUMBI � PORTFOLIO STYLESHEET
+   Aesthetic: Refined Naturalist Editorial
+   Palette: Deep Forest Green � Warm Cream � Slate � Terracotta Accent
+   Fonts: Cormorant Garamond (headings) � DM Sans (body)
+   ============================================================ */
+
+/* ============================================================
+   1. CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+   ============================================================ */
+:root {
+  /* Color Palette */
+  --clr-forest:      #1a3a2a;   /* deep forest green � primary brand */
+  --clr-forest-mid:  #2c5c40;   /* mid forest green */
+  --clr-moss:        #4a7c5e;   /* moss � interactive accent */
+  --clr-sage:        #8aab96;   /* sage � soft highlight */
+  --clr-mist:        #c8ddd1;   /* mist � borders, dividers */
+  --clr-cream:       #f5f0e8;   /* warm cream � page background */
+  --clr-parchment:   #ede7d9;   /* parchment � card backgrounds */
+  --clr-slate:       #2e3a34;   /* dark slate � body text */
+  --clr-slate-mid:   #5a6e63;   /* mid slate � secondary text */
+  --clr-slate-light: #8a9e93;   /* light slate � meta text */
+  --clr-terracotta:  #b85c38;   /* terracotta � accent / highlight */
+  --clr-white:       #ffffff;
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'DM Sans', 'Segoe UI', sans-serif;
+
+  /* Spacing Scale */
+  --sp-xs:  0.5rem;
+  --sp-sm:  1rem;
+  --sp-md:  1.5rem;
+  --sp-lg:  2.5rem;
+  --sp-xl:  4rem;
+  --sp-2xl: 6rem;
+  --sp-3xl: 9rem;
+
+  /* Layout */
+  --container-max: 1140px;
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 18px;
+
+  /* Shadows */
+  --shadow-subtle: 0 2px 12px rgba(26, 58, 42, 0.07);
+  --shadow-card:   0 6px 30px rgba(26, 58, 42, 0.10);
+  --shadow-lift:   0 14px 48px rgba(26, 58, 42, 0.14);
+
+  /* Transitions */
+  --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================
+   2. RESET & BASE STYLES
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.72;
+  color: var(--clr-slate);
+  background-color: var(--clr-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img { display: block; max-width: 100%; }
+
+a {
+  color: var(--clr-moss);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover { color: var(--clr-forest); }
+
+ul { list-style: none; }
+
+/* ============================================================
+   3. LAYOUT UTILITIES
+   ============================================================ */
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 3rem);
+}
+
+.section {
+  padding-block: var(--sp-3xl);
+}
+
+/* ============================================================
+   4. TYPOGRAPHY HELPERS
+   ============================================================ */
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--clr-moss);
+  margin-bottom: var(--sp-md);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-label::after {
+  content: '';
+  display: block;
+  flex: 1 1 60px;
+  max-width: 80px;
+  height: 1px;
+  background: var(--clr-mist);
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--clr-forest);
+  margin-bottom: var(--sp-lg);
+}
+
+.section-heading em {
+  font-style: italic;
+  color: var(--clr-moss);
+}
+
+/* ============================================================
+   5. SITE HEADER / NAVIGATION
+   ============================================================ */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(245, 240, 232, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--clr-mist);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 1.1rem;
+}
+
+/* Logo */
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--clr-forest);
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.logo:hover { color: var(--clr-moss); }
+
+/* Nav links */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-lg);
+}
+
+.nav a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--clr-slate-mid);
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 1px;
+  background: var(--clr-moss);
+  transition: width var(--transition);
+}
+
+.nav a:hover { color: var(--clr-forest); }
+.nav a:hover::after { width: 100%; }
+
+/* Download button in header */
+.btn-download {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--clr-forest);
+  border: 1.5px solid var(--clr-forest);
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition), color var(--transition);
+}
+
+.btn-download:hover {
+  background: var(--clr-forest);
+  color: var(--clr-cream);
+}
+
+/* ============================================================
+   6. HERO SECTION
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 6rem;
+  padding-bottom: var(--sp-2xl);
+  background: var(--clr-forest);
+  overflow: hidden;
+}
+
+/* Subtle grain texture overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Radial glow */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 60vw;
+  height: 60vw;
+  max-width: 700px;
+  max-height: 700px;
+  background: radial-gradient(circle, rgba(74,124,94,0.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Botanical SVG decoration */
+.hero-bg-leaf {
+  position: absolute;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(160px, 22vw, 320px);
+  color: rgba(138, 171, 150, 0.12);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 780px;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--clr-sage);
+  margin-bottom: 1.4rem;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  font-weight: 300;
+  line-height: 1.08;
+  color: var(--clr-cream);
+  margin-bottom: 1.4rem;
+  letter-spacing: -0.01em;
+}
+
+.hero-name em {
+  font-style: italic;
+  color: var(--clr-sage);
+}
+
+.hero-title {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--clr-mist);
+  margin-bottom: 1.6rem;
+}
+
+.hero-tagline {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(200, 221, 209, 0.8);
+  line-height: 1.6;
+  margin-bottom: 2.4rem;
+}
+
+.br-desktop { display: inline; }
+
+/* Contact chips */
+.hero-contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2.4rem;
+}
+
+.contact-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--clr-mist);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(200,221,209,0.18);
+  padding: 0.42rem 0.9rem;
+  border-radius: 50px;
+  letter-spacing: 0.03em;
+}
+
+.chip-icon {
+  font-size: 0.9rem;
+  color: var(--clr-sage);
+}
+
+/* Action buttons */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn-primary {
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--clr-forest);
+  background: var(--clr-cream);
+  padding: 0.78rem 2rem;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition), transform var(--transition);
+}
+
+.btn-primary:hover {
+  background: var(--clr-parchment);
+  transform: translateY(-2px);
+  color: var(--clr-forest);
+}
+
+.btn-ghost {
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--clr-mist);
+  border: 1.5px solid rgba(200,221,209,0.35);
+  padding: 0.78rem 2rem;
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.btn-ghost:hover {
+  color: var(--clr-cream);
+  border-color: var(--clr-sage);
+}
+
+/* Scroll hint */
+.scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 1;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(200,221,209,0), rgba(200,221,209,0.5));
+  animation: scrollPulse 1.8s ease-in-out infinite;
+}
+
+.scroll-hint span {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(200,221,209,0.4);
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.8); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+/* ============================================================
+   7. ABOUT SECTION
+   ============================================================ */
+.about-section {
+  background: var(--clr-cream);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: var(--sp-2xl);
+  align-items: start;
+}
+
+.about-lead {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  font-weight: 400;
+  color: var(--clr-forest);
+  line-height: 1.55;
+  margin-bottom: 1.4rem;
+}
+
+.about-body {
+  font-size: 1rem;
+  color: var(--clr-slate-mid);
+  line-height: 1.78;
+  margin-bottom: 1.2rem;
+}
+
+.about-quote {
+  border-left: 3px solid var(--clr-moss);
+  padding-left: 1.4rem;
+  margin-top: 2rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--clr-slate-mid);
+  line-height: 1.6;
+}
+
+/* Stat cards */
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.stat-card {
+  background: var(--clr-parchment);
+  border: 1px solid var(--clr-mist);
+  border-radius: var(--radius-md);
+  padding: 1.4rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.stat-card:hover {
+  box-shadow: var(--shadow-card);
+  transform: translateY(-3px);
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: var(--clr-forest);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--clr-slate-mid);
+  line-height: 1.4;
+}
+
+.stat-icon {
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+
+.highlight-card {
+  background: var(--clr-forest);
+  border-color: var(--clr-forest-mid);
+}
+
+.highlight-card .stat-label {
+  color: var(--clr-sage);
+}
+
+/* ============================================================
+   8. EXPERIENCE SECTION
+   ============================================================ */
+.experience-section {
+  background: var(--clr-parchment);
+  border-top: 1px solid var(--clr-mist);
+  border-bottom: 1px solid var(--clr-mist);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-xl);
+  margin-top: var(--sp-sm);
+}
+
+.timeline-category {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--clr-terracotta);
+  margin-bottom: 1.4rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--clr-mist);
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 1.4rem;
+  align-items: start;
+}
+
+.timeline-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0.6rem;
+}
+
+.marker-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--clr-moss);
+  border: 3px solid var(--clr-parchment);
+  box-shadow: 0 0 0 2px var(--clr-moss);
+  flex-shrink: 0;
+}
+
+.marker-dot.volunteer {
+  background: var(--clr-terracotta);
+  box-shadow: 0 0 0 2px var(--clr-terracotta);
+}
+
+.marker-line {
+  flex: 1;
+  width: 1px;
+  background: var(--clr-mist);
+  margin-top: 0.4rem;
+  min-height: 60px;
+}
+
+.timeline-card {
+  background: var(--clr-cream);
+  border: 1px solid var(--clr-mist);
+  border-radius: var(--radius-md);
+  padding: 1.8rem 2rem;
+  box-shadow: var(--shadow-subtle);
+  transition: box-shadow var(--transition);
+}
+
+.timeline-card:hover {
+  box-shadow: var(--shadow-card);
+}
+
+.timeline-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.8rem;
+}
+
+.timeline-period {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--clr-slate-light);
+}
+
+.timeline-tag {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--clr-mist);
+  color: var(--clr-forest);
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
+}
+
+.volunteer-tag {
+  background: rgba(184, 92, 56, 0.12);
+  color: var(--clr-terracotta);
+}
+
+.timeline-role {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--clr-forest);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-org {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  color: var(--clr-moss);
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+
+.org-icon { font-size: 0.9rem; }
+
+.timeline-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.timeline-details li {
+  font-size: 0.92rem;
+  color: var(--clr-slate-mid);
+  line-height: 1.65;
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.timeline-details li::before {
+  content: '�';
+  position: absolute;
+  left: 0;
+  color: var(--clr-sage);
+  font-size: 0.8rem;
+}
+
+/* ============================================================
+   9. SKILLS SECTION
+   ============================================================ */
+.skills-section {
+  background: var(--clr-cream);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.4rem;
+  margin-bottom: var(--sp-2xl);
+}
+
+.skill-category-card {
+  background: var(--clr-parchment);
+  border: 1px solid var(--clr-mist);
+  border-radius: var(--radius-md);
+  padding: 1.8rem;
+  transition: box-shadow var(--transition);
+}
+
+.skill-category-card:hover {
+  box-shadow: var(--shadow-card);
+}
+
+.skill-cat-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1.4rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--clr-mist);
+}
+
+.skill-cat-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.skill-cat-title {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--clr-forest);
+}
+
+/* Skill bars */
+.skill-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.skill-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--clr-slate);
+}
+
+.skill-bar {
+  height: 5px;
+  background: var(--clr-mist);
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  width: var(--fill);
+  background: linear-gradient(90deg, var(--clr-moss), var(--clr-forest-mid));
+  border-radius: 50px;
+  animation: fillBar 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  transform-origin: left;
+}
+
+@keyframes fillBar {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* Competency tags */
+.competency-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--clr-forest);
+  background: var(--clr-cream);
+  border: 1px solid var(--clr-mist);
+  padding: 0.32rem 0.7rem;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.tag:hover {
+  background: var(--clr-mist);
+  border-color: var(--clr-sage);
+}
+
+/* Languages */
+.languages-block {
+  border-top: 1px solid var(--clr-mist);
+  padding-top: var(--sp-lg);
+}
+
+.lang-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.lang-card {
+  flex: 1 1 160px;
+  background: var(--clr-forest);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: flex-start;
+  transition: transform var(--transition);
+}
+
+.lang-card:hover {
+  transform: translateY(-3px);
+}
+
+.lang-flag {
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+
+.lang-name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--clr-cream);
+}
+
+.lang-level {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-sage);
+}
+
+/* ============================================================
+   10. CONTACT SECTION
+   ============================================================ */
+.contact-section {
+  background: var(--clr-parchment);
+  border-top: 1px solid var(--clr-mist);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+}
+
+.contact-card {
+  border-radius: var(--radius-lg);
+  padding: 2.4rem 2.2rem;
+  border: 1px solid var(--clr-mist);
+}
+
+.primary-contact {
+  background: var(--clr-forest);
+}
+
+.reference-card {
+  background: var(--clr-cream);
+  position: relative;
+}
+
+.ref-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--clr-terracotta);
+  background: rgba(184, 92, 56, 0.10);
+  padding: 0.25rem 0.7rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+}
+
+.contact-card-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.3rem;
+}
+
+.primary-contact .contact-card-title {
+  color: var(--clr-cream);
+}
+
+.reference-card .contact-card-title {
+  color: var(--clr-forest);
+}
+
+.contact-card-subtitle {
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 1.8rem;
+}
+
+.primary-contact .contact-card-subtitle {
+  color: var(--clr-sage);
+}
+
+.reference-card .contact-card-subtitle {
+  color: var(--clr-slate-light);
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+
+.cicon {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  flex-shrink: 0;
+}
+
+.primary-contact .cicon {
+  color: var(--clr-sage);
+}
+
+.reference-card .cicon {
+  color: var(--clr-moss);
+}
+
+.contact-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.15rem;
+}
+
+.primary-contact .contact-label {
+  color: rgba(200, 221, 209, 0.55);
+}
+
+.reference-card .contact-label {
+  color: var(--clr-slate-light);
+}
+
+.contact-value {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.primary-contact .contact-value,
+.primary-contact a.contact-value {
+  color: var(--clr-mist);
+}
+
+.primary-contact a.contact-value:hover {
+  color: var(--clr-cream);
+}
+
+.reference-card .contact-value,
+.reference-card a.contact-value {
+  color: var(--clr-slate-mid);
+}
+
+.reference-card a.contact-value:hover {
+  color: var(--clr-moss);
+}
+
+/* Download CV button in contact card */
+.btn-cv-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--clr-forest);
+  background: var(--clr-cream);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition), transform var(--transition);
+}
+
+.btn-cv-download:hover {
+  background: var(--clr-parchment);
+  transform: translateY(-2px);
+  color: var(--clr-forest);
+}
+
+.ref-note {
+  font-size: 0.8rem;
+  color: var(--clr-slate-light);
+  line-height: 1.6;
+  font-style: italic;
+  padding-top: 1rem;
+  border-top: 1px solid var(--clr-mist);
+}
+
+/* ============================================================
+   11. SITE FOOTER
+   ============================================================ */
+.site-footer {
+  background: var(--clr-forest);
+  padding-block: var(--sp-xl);
+  border-top: 1px solid var(--clr-forest-mid);
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  text-align: center;
+}
+
+.footer-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--clr-cream);
+  letter-spacing: 0.03em;
+}
+
+.footer-tagline {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--clr-sage);
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.6rem;
+  align-items: center;
+}
+
+.footer-nav a {
+  font-size: 0.82rem;
+  color: var(--clr-slate-light);
+  letter-spacing: 0.05em;
+}
+
+.footer-nav a:hover {
+  color: var(--clr-sage);
+}
+
+.footer-nav span {
+  color: var(--clr-forest-mid);
+}
+
+.footer-copy {
+  font-size: 0.72rem;
+  color: var(--clr-forest-mid);
+  margin-top: 0.4rem;
+}
+
+/* ============================================================
+   12. RESPONSIVE � TABLET (max 900px)
+   ============================================================ */
+@media (max-width: 900px) {
+
+  .nav { gap: var(--sp-md); }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-lg);
+  }
+
+  .about-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lang-card {
+    flex: 1 1 140px;
+  }
+
+}
+
+/* ============================================================
+   13. RESPONSIVE � MOBILE (max 640px)
+   ============================================================ */
+@media (max-width: 640px) {
+
+  .section { padding-block: var(--sp-2xl); }
+
+  /* Header */
+  .nav { display: none; }
+
+  .header-inner {
+    justify-content: space-between;
+  }
+
+  /* Hero */
+  .hero-name { font-size: clamp(2.8rem, 12vw, 4.5rem); }
+  .br-desktop { display: none; }
+  .hero-contact-row { flex-direction: column; align-items: center; }
+  .hero-bg-leaf { display: none; }
+
+  /* About */
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Timeline */
+  .timeline-item {
+    grid-template-columns: 32px 1fr;
+    gap: 0.9rem;
+  }
+
+  .timeline-card {
+    padding: 1.4rem;
+  }
+
+  /* Languages */
+  .lang-row { flex-direction: column; }
+  .lang-card { flex: auto; }
+
+  /* Skills */
+  .skill-category-card { padding: 1.4rem; }
+
+  /* Contact */
+  .contact-card { padding: 1.8rem 1.4rem; }
+
+  /* Footer */
+  .footer-nav { gap: 0.6rem; }
+
+}
+
+</style>
+  <!-- Google Fonts: Cormorant Garamond (display) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER / NAVIGATION HTM CONTENT ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ============================================================ -->
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="#hero" class="logo">YBM</a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#" class="btn-download" download aria-label="Download CV">
+        ? Download CV
+      </a>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       HERO / INTRODUCTION SECTION
+  ============================================================ -->
+  <section id="hero" class="hero">
+    <!-- Decorative botanical SVG background element -->
+    <div class="hero-bg-leaf" aria-hidden="true">
+      <svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
+        <path d="M200,580 C200,580 20,400 20,200 C20,80 100,10 200,10 C300,10 380,80 380,200 C380,400 200,580 200,580Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="200" y1="580" x2="200" y2="10" stroke="currentColor" stroke-width="0.8"/>
+        <line x1="200" y1="200" x2="70" y2="120" stroke="currentColor" stroke-width="0.8"/>
+        <line x1="200" y1="280" x2="60" y2="220" stroke="currentColor" stroke-width="0.8"/>
+        <line x1="200" y1="360" x2="80" y2="320" stroke="currentColor" stroke-width="0.8"/>
+        <line x1="200" y1="200" x2="330" y2="120" stroke="currentColor" stroke-width="0.8"/>
+        <line x1="200" y1="280" x2="340" y2="220" stroke="currentColor" stroke-width="0.8"/>
+        <line x1="200" y1="360" x2="320" y2="320" stroke="currentColor" stroke-width="0.8"/>
+      </svg>
+    </div>
+
+    <div class="hero-content container">
+      <div class="hero-eyebrow">Environmental Professional � Gabon</div>
+      <h1 class="hero-name">
+        Yannick Ben<br />
+        <em>Manfoumbi</em>
+      </h1>
+      <p class="hero-title">Environmental Policy &amp; Sustainability</p>
+      <p class="hero-tagline">
+        Advancing climate resilience through rigorous data analysis,<br class="br-desktop"/>
+        community engagement, and evidence-based environmental policy.
+      </p>
+
+      <div class="hero-contact-row">
+        <span class="contact-chip">
+          <span class="chip-icon" aria-hidden="true">?</span>
+          benmaf7@gmail.com
+        </span>
+        <span class="contact-chip">
+          <span class="chip-icon" aria-hidden="true">?</span>
+          0790003788
+        </span>
+        <span class="contact-chip">
+          <span class="chip-icon" aria-hidden="true">?</span>
+          Libreville, Gabon
+        </span>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#about" class="btn-primary">Explore Profile</a>
+        <a href="#contact" class="btn-ghost">Get in Touch</a>
+      </div>
+    </div>
+
+    <!-- Decorative scroll indicator -->
+    <div class="scroll-hint" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT ME SECTION
+  ============================================================ -->
+  <section id="about" class="section about-section">
+    <div class="container">
+
+      <div class="section-label">01 � About</div>
+      <div class="about-grid">
+
+        <div class="about-text">
+          <h2 class="section-heading">A voice for<br /><em>sustainable futures</em></h2>
+          <p class="about-lead">
+            I am a dedicated environmental professional committed to the intersection of climate science, policy, and community resilience across Central Africa and beyond.
+          </p>
+          <p class="about-body">
+            My work bridges technical rigour and human impact � from deploying GIS tools to map environmental vulnerabilities, to mobilising communities around waste management and urban sustainability. I believe that lasting change requires both the precision of data and the trust of people.
+          </p>
+          <p class="about-body">
+            Trained in environmental data analysis and spatial technologies, I aspire to contribute to international organisations, research institutions, and NGOs committed to accelerating the global transition to a low-carbon, equitable future. My Gabonese perspective brings a critical voice from a biodiversity-rich region often underrepresented in global climate conversations.
+          </p>
+          <blockquote class="about-quote">
+            "The environment is not a peripheral concern � it is the foundation upon which all human progress rests."
+          </blockquote>
+        </div>
+
+        <div class="about-stats">
+          <!-- Stat Cards -->
+          <div class="stat-card">
+            <span class="stat-number">4+</span>
+            <span class="stat-label">Years of Environmental<br/>Professional Experience</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">3</span>
+            <span class="stat-label">Languages<br/>Spoken Fluently</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">6</span>
+            <span class="stat-label">Technical Tools &amp;<br/>Platforms Mastered</span>
+          </div>
+          <div class="stat-card highlight-card">
+            <span class="stat-icon" aria-hidden="true">??</span>
+            <span class="stat-label">Climate Change Mitigation<br/>&amp; Sustainability Focus</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROFESSIONAL EXPERIENCE SECTION
+  ============================================================ -->
+  <section id="experience" class="section experience-section">
+    <div class="container">
+
+      <div class="section-label">02 � Experience</div>
+      <h2 class="section-heading">Professional &amp;<br /><em>Volunteer Journey</em></h2>
+
+      <div class="timeline">
+
+        <!-- Professional Experience -->
+        <div class="timeline-group">
+          <div class="timeline-category">Professional Experience</div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker">
+              <div class="marker-dot"></div>
+              <div class="marker-line"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-period">2020 � 2022</span>
+                <span class="timeline-tag">Full-time</span>
+              </div>
+              <h3 class="timeline-role">Consultant &amp; Collector</h3>
+              <div class="timeline-org">
+                <span class="org-icon" aria-hidden="true">??</span>
+                A.G.A.S.A � Libreville, Gabon
+              </div>
+              <ul class="timeline-details">
+                <li>Conducted field assessments and environmental data collection across urban and peri-urban zones in Libreville.</li>
+                <li>Compiled, structured, and analysed environmental datasets to support sustainability reporting and decision-making.</li>
+                <li>Produced written consultancy reports outlining findings, risk assessments, and actionable recommendations.</li>
+                <li>Coordinated with local stakeholders to ensure data integrity and community-aligned project outcomes.</li>
+                <li>Applied GIS tools to visualise spatial environmental data and communicate findings to non-technical audiences.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Volunteer Experience -->
+        <div class="timeline-group">
+          <div class="timeline-category">Volunteer Experience</div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker">
+              <div class="marker-dot volunteer"></div>
+              <div class="marker-line"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-period">2018 � 2022</span>
+                <span class="timeline-tag volunteer-tag">Volunteer</span>
+              </div>
+              <h3 class="timeline-role">Urban Sustainability Volunteer</h3>
+              <div class="timeline-org">
+                <span class="org-icon" aria-hidden="true">???</span>
+                Libreville City Hall � Libreville, Gabon
+              </div>
+              <ul class="timeline-details">
+                <li>Contributed actively to urban sustainability initiatives under the city's environmental programme.</li>
+                <li>Led planning efforts to redesign market spaces, improving safety, hygiene, and pedestrian flow.</li>
+                <li>Designed and delivered community awareness campaigns on waste pollution, reaching diverse neighbourhood audiences.</li>
+                <li>Engaged residents through workshops and informational sessions to foster civic environmental responsibility.</li>
+                <li>Collaborated with municipal officers to integrate community feedback into urban policy proposals.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SKILLS SECTION
+  ============================================================ -->
+  <section id="skills" class="section skills-section">
+    <div class="container">
+
+      <div class="section-label">03 � Capabilities</div>
+      <h2 class="section-heading">Skills &amp;<br /><em>Expertise</em></h2>
+
+      <div class="skills-grid">
+
+        <!-- GIS -->
+        <div class="skill-category-card">
+          <div class="skill-cat-header">
+            <span class="skill-cat-icon" aria-hidden="true">???</span>
+            <span class="skill-cat-title">Geographic Information Systems</span>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item">
+              <span class="skill-name">ArcGIS Pro</span>
+              <div class="skill-bar"><div class="skill-fill" style="--fill: 85%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">QGIS</span>
+              <div class="skill-bar"><div class="skill-fill" style="--fill: 80%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data Analysis -->
+        <div class="skill-category-card">
+          <div class="skill-cat-header">
+            <span class="skill-cat-icon" aria-hidden="true">??</span>
+            <span class="skill-cat-title">Data Analysis &amp; Statistics</span>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item">
+              <span class="skill-name">R (Statistical Computing)</span>
+              <div class="skill-bar"><div class="skill-fill" style="--fill: 75%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Python</span>
+              <div class="skill-bar"><div class="skill-fill" style="--fill: 70%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">SPSS</span>
+              <div class="skill-bar"><div class="skill-fill" style="--fill: 78%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="skill-category-card">
+          <div class="skill-cat-header">
+            <span class="skill-cat-icon" aria-hidden="true">???</span>
+            <span class="skill-cat-title">Productivity &amp; Reporting</span>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item">
+              <span class="skill-name">Advanced Microsoft Excel</span>
+              <div class="skill-bar"><div class="skill-fill" style="--fill: 90%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="skill-category-card">
+          <div class="skill-cat-header">
+            <span class="skill-cat-icon" aria-hidden="true">??</span>
+            <span class="skill-cat-title">Core Competencies</span>
+          </div>
+          <div class="competency-tags">
+            <span class="tag">Climate Policy</span>
+            <span class="tag">Sustainability Strategy</span>
+            <span class="tag">Community Engagement</span>
+            <span class="tag">Field Research</span>
+            <span class="tag">Environmental Reporting</span>
+            <span class="tag">Urban Planning Support</span>
+            <span class="tag">Stakeholder Communication</span>
+            <span class="tag">Waste Management</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Languages -->
+      <div class="languages-block">
+        <div class="section-label" style="margin-bottom: 1.5rem;">Languages</div>
+        <div class="lang-row">
+          <div class="lang-card">
+            <span class="lang-flag" aria-hidden="true">????</span>
+            <span class="lang-name">French</span>
+            <span class="lang-level">Native</span>
+          </div>
+          <div class="lang-card">
+            <span class="lang-flag" aria-hidden="true">????</span>
+            <span class="lang-name">English</span>
+            <span class="lang-level">Professional</span>
+          </div>
+          <div class="lang-card">
+            <span class="lang-flag" aria-hidden="true">????</span>
+            <span class="lang-name">Spanish</span>
+            <span class="lang-level">Conversational</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT / REFERENCES SECTION
+  ============================================================ -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+
+      <div class="section-label">04 � Contact</div>
+      <h2 class="section-heading">Let's <em>connect</em></h2>
+
+      <div class="contact-grid">
+
+        <!-- Personal Contact -->
+        <div class="contact-card primary-contact">
+          <h3 class="contact-card-title">Yannick Ben Manfoumbi</h3>
+          <p class="contact-card-subtitle">Environmental Professional � Gabonese National</p>
+
+          <div class="contact-details">
+            <div class="contact-row">
+              <span class="cicon" aria-hidden="true">?</span>
+              <div>
+                <div class="contact-label">Email</div>
+                <a href="mailto:benmaf7@gmail.com" class="contact-value">benmaf7@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-row">
+              <span class="cicon" aria-hidden="true">?</span>
+              <div>
+                <div class="contact-label">Phone</div>
+                <a href="tel:0790003788" class="contact-value">0790003788</a>
+              </div>
+            </div>
+            <div class="contact-row">
+              <span class="cicon" aria-hidden="true">?</span>
+              <div>
+                <div class="contact-label">Location</div>
+                <span class="contact-value">Libreville, Gabon</span>
+              </div>
+            </div>
+            <div class="contact-row">
+              <span class="cicon" aria-hidden="true">??</span>
+              <div>
+                <div class="contact-label">Nationality</div>
+                <span class="contact-value">Gabonese</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="#" class="btn-cv-download" download>
+            <span aria-hidden="true">?</span> Download Full CV
+          </a>
+        </div>
+
+        <!-- Reference -->
+        <div class="contact-card reference-card">
+          <div class="ref-badge">Reference</div>
+          <h3 class="contact-card-title">Libreville City Hall</h3>
+          <p class="contact-card-subtitle">Professional Volunteer Reference</p>
+
+          <div class="contact-details">
+            <div class="contact-row">
+              <span class="cicon" aria-hidden="true">?</span>
+              <div>
+                <div class="contact-label">Address</div>
+                <span class="contact-value">Boulevard Triomphal, Libreville, Gabon</span>
+              </div>
+            </div>
+            <div class="contact-row">
+              <span class="cicon" aria-hidden="true">?</span>
+              <div>
+                <div class="contact-label">Phone</div>
+                <a href="tel:+241062113475" class="contact-value">+241 062 11 34 75</a>
+                <a href="tel:+241011763122" class="contact-value">+241 011 76 31 22</a>
+              </div>
+            </div>
+            <div class="contact-row">
+              <span class="cicon" aria-hidden="true">??</span>
+              <div>
+                <div class="contact-label">Website</div>
+                <a href="https://libreville.ga" target="_blank" rel="noopener" class="contact-value">libreville.ga</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="ref-note">
+            Available upon request for verification of volunteer contributions and professional conduct (2018�2022).
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-name">Yannick Ben Manfoumbi</div>
+      <div class="footer-tagline">Environmental Professional � Libreville, Gabon</div>
+      <div class="footer-nav">
+        <a href="#about">About</a>
+        <span aria-hidden="true">�</span>
+        <a href="#experience">Experience</a>
+        <span aria-hidden="true">�</span>
+        <a href="#skills">Skills</a>
+        <span aria-hidden="true">�</span>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-copy">� 2025 Yannick Ben Manfoumbi. All rights reserved.</div>
+    </div>
+  </footer>
+
+</body>
+</html>
